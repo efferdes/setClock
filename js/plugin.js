@@ -14,6 +14,9 @@
 		// generate basic html
 		$.fn.setClock.genHtml(element);
 		
+		// element ul
+		elementUl = element.find('ul');
+		
 		// interval witch control each lap
 		clockTimer = setInterval(function(){
 			
@@ -46,9 +49,9 @@
 
 		    $.fn.setClock.defaultOptions.time = date;
 
-		    element.find('ul li#hours').html(hours);
-		    element.find('ul li#minutes').html(minutes);
-		    element.find('ul li#seconds').html(seconds);
+		    elementUl.find('li#hours').html(hours);
+		    elementUl.find('li#minutes').html(minutes);
+		    elementUl.find('li#seconds').html(seconds);
 		}, 1000);
 		
 		return this;
@@ -64,9 +67,8 @@
 	};
 
 	$.fn.setClock.genHtml = function(el) {
-		console.log(this._teste);
 		if(el.find('ul li').length == 0){
-			el.append('<ul><li id="hours"></li><li>:</li><li id="minutes"></li><li>:</li><li id="seconds"></li></ul>');
+			el.append('<ul><li id="hours">00</li><li>:</li><li id="minutes">00</li><li>:</li><li id="seconds">00</li></ul>');
 		}
 	};
 	

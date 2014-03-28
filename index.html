@@ -2,22 +2,30 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Insert title here</title>
+		<title>Set Clock Time</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<style>
-			.wg-clock ul li {
-				float:left;
+			#set-clock ul li {
+				display: block;
+				float: left;
 			}
 		</style>
 		<script src="js/plugin.js"></script>
 		<script>
 			$(document).ready(function() {
-				var clockEl = $('#wg-clock');
-				clockEl.ometzClock();
+				var clock = $('#set-clock');
+				
+				// init
+				clock.setClock();
+				
+				// after a while, set net time, you can also, pass just the timestamp without Date()
+				setTimeout(function(){
+					clock.setClock.setTime(new Date(1395965183631));
+				},5000);
 			});
 		</script>
 	</head>
 	<body>
-		<div id="wg-clock"></div>
+		<div id="set-clock"></div>
 	</body>
 </html>
